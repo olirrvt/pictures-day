@@ -1,7 +1,8 @@
 
 const btnForm = document.querySelector("#botao-formulario");
 const inputDate = document.querySelector("#data-usuario");
-let userData = inputDate.value;
+const imgConteudo = document.querySelector("#imagem-conteudo");
+const tituloImg = document.querySelector("#titulo-texto");
 
 const apiApod = () => {
 
@@ -16,8 +17,13 @@ const apiApod = () => {
       .then((res) => res.json())
       .then((res) => {
 
-        const urlImg = res.url;
+        console.log(res)
 
+        const titulo = res.title;
+        tituloImg.innerHTML = titulo; 
+
+        const urlImg = res.url;
+        imgConteudo.src = urlImg;
       });
   });
 
