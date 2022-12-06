@@ -19,11 +19,15 @@ const apiApod = () => {
 
         console.log(res)
 
-        const titulo = res.title;
-        tituloImg.innerHTML = titulo; 
+        if (res.media_type == "image") {
 
-        const urlImg = res.url;
-        imgConteudo.src = urlImg;
+            const titulo = res.title;
+            tituloImg.innerHTML = titulo; 
+    
+            const urlImg = res.url;
+            imgConteudo.src = urlImg;
+        }
+
       });
   });
 
