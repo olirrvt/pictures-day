@@ -1,8 +1,8 @@
 
 const btnForm = document.querySelector("#botao-formulario");
 const inputDate = document.querySelector("#data-usuario");
-const imgConteudo = document.querySelector("#imagem-conteudo");
-const tituloImg = document.querySelector("#titulo-texto");
+let divConteudo = document.querySelector(".caixa-da-imagem");
+let divTitulo = document.querySelector(".caixa-do-titulo");
 
 function fetchUrl(data) {
   const url = `https://api.nasa.gov/planetary/apod?api_key=4ukW8vajiJayTXJPeRUysMqWtdXKusT7PtTxx7Xo&thumbs=true&date=${data}`;
@@ -18,6 +18,8 @@ function dateFormat(data) {
 
 const nowDateImg = async () => {
   
+  divConteudo.innerHTML = '';
+  divTitulo.innerHTML = '';
   let DateNow = Date.now();
   let data = new Date(DateNow)
   let dataFormatada = dateFormat(data);
@@ -27,11 +29,37 @@ const nowDateImg = async () => {
   .then((res) => res.json())
   .then((res) => {
 
-    const titulo = res.title;
-    tituloImg.innerHTML = titulo; 
+    if (res.media_type == "image") {
+            
+      let urlImg = res.url;
+      let img = document.createElement("img");
 
-    const urlImg = res.url;
-    imgConteudo.src = urlImg;
+      img.src = urlImg;
+      img.classList.add("imagem-do-conteudo");
+      divConteudo.appendChild(img);
+
+      const titulo = res.title;
+      let h1 = document.createElement("h1");
+
+      h1.classList.add("titulo-imagem");
+      h1.innerHTML = titulo
+      divTitulo.appendChild(h1);
+    } else {
+
+    let urlVideo = res.url;
+    let object = document.createElement("object");
+
+    object.data = urlVideo;
+    object.classList.add("video-conteudo");
+    divConteudo.appendChild(object);
+    
+    const titulo = res.title;
+    let h1 = document.createElement("h1");
+
+    h1.classList.add("titulo-imagem");
+    h1.innerHTML = titulo
+    divTitulo.appendChild(h1);
+  }
 
   });
 };
@@ -40,38 +68,47 @@ const apiApod = () => {
 
     btnForm.addEventListener("click", async (e) => {
     
-    e.preventDefault()
+    e.preventDefault();
+    divConteudo.innerHTML = '';
+    divTitulo.innerHTML = '';
     let userData = inputDate.value;
+
     console.log(userData)
 
     await fetch(fetchUrl(userData))
       .then((res) => res.json())
       .then((res) => {
 
-        console.log(res)
-
         if (res.media_type == "image") {
-
+            
             let urlImg = res.url;
-
-            let divImagem = document.querySelector(".caixa-da-imagem");
             let img = document.createElement("img");
 
-            img.src = urlImg
+            img.src = urlImg;
             img.classList.add("imagem-do-conteudo");
-            divImagem.appendChild(img);
+            divConteudo.appendChild(img);
 
             const titulo = res.title;
-
-            let divTitulo = document.querySelector(".caixa-do-titulo");
             let h1 = document.createElement("h1");
 
             h1.classList.add("titulo-imagem");
             h1.innerHTML = titulo
             divTitulo.appendChild(h1);
+          } else {
   
-        } else {
-          console.log("É um vídeo!")
+          let urlVideo = res.url;
+          let object = document.createElement("object");
+
+          object.data = urlVideo;
+          object.classList.add("video-conteudo");
+          divConteudo.appendChild(object);
+          
+          const titulo = res.title;
+          let h1 = document.createElement("h1");
+
+          h1.classList.add("titulo-imagem");
+          h1.innerHTML = titulo
+          divTitulo.appendChild(h1);
         }
       });
   });
