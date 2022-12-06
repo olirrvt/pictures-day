@@ -52,13 +52,27 @@ const apiApod = () => {
 
         if (res.media_type == "image") {
 
-            const titulo = res.title;
-            tituloImg.innerHTML = titulo; 
-    
-            const urlImg = res.url;
-            imgConteudo.src = urlImg;
-        }
+            let urlImg = res.url;
 
+            let divImagem = document.querySelector(".caixa-da-imagem");
+            let img = document.createElement("img");
+
+            img.src = urlImg
+            img.classList.add("imagem-do-conteudo");
+            divImagem.appendChild(img);
+
+            const titulo = res.title;
+
+            let divTitulo = document.querySelector(".caixa-do-titulo");
+            let h1 = document.createElement("h1");
+
+            h1.classList.add("titulo-imagem");
+            h1.innerHTML = titulo
+            divTitulo.appendChild(h1);
+  
+        } else {
+          console.log("É um vídeo!")
+        }
       });
   });
 
