@@ -24,7 +24,7 @@ body {
 /* Estlização do conteudo primario */
 
 .container-conteudo-principal {
-    margin: 10rem 0 0 0;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,8 +45,8 @@ body {
 .video-conteudo {
     border: 4px #fff solid;
     margin: 0 0 3rem 0;
-    width: 25rem;
-    height: 15rem;
+    width: 17rem;
+    height: 14rem;
 }
 
 .imagem-btn-descricao {
@@ -136,6 +136,13 @@ label {
         width: 50%;
         justify-content: center;
         bottom: -11rem;
+    }
+
+    .video-conteudo {
+        border: 4px #fff solid;
+        margin: 0 0 3rem 0;
+        width: 40rem;
+        height: 40rem;
     }
 }
 
