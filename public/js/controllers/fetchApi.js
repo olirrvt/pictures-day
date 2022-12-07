@@ -104,7 +104,7 @@ const apiApod = () => {
           } else if (res.code == 400) {
             
             let img = document.createElement("img");
-            img.src = "../../public/img/sad.png";
+            img.src = "../../img/sad.png";
             img.classList.add("imagem-de-error");
             divConteudo.appendChild(img);
 

@@ -4,6 +4,7 @@
   "description": "Projeto feito para capturar fotos da Apod Api disponibilizada pela NASA",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/olirrvt/pictures-day/issues"
   },
-  "homepage": "https://github.com/olirrvt/pictures-day#readme"
+  "homepage": "https://github.com/olirrvt/pictures-day#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
 }
