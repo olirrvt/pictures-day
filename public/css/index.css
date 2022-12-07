@@ -24,7 +24,7 @@ body {
 /* Estlização do conteudo primario */
 
 .container-conteudo-principal {
-    
+    margin: 2rem 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,6 +32,8 @@ body {
 }
 
 .titulo-imagem {
+    font-family: 'Lilita One', cursive;
+    font-weight: 100;
     color: #fff;
     text-align: center;
 }
@@ -47,6 +49,12 @@ body {
     margin: 0 0 3rem 0;
     width: 17rem;
     height: 14rem;
+}
+
+.imagem-de-error {
+    margin: 3rem 0 0 0;
+    width: 25vh;
+    height: 25vh;
 }
 
 .imagem-btn-descricao {
