@@ -5,7 +5,7 @@ Projeto feito para capturar fotos tiradas pela NASA na data escolhida pelo usuá
 
 ## Demonstração
 
-![image](https://user-images.githubusercontent.com/100844800/206288598-bd3c20f6-7772-4a4c-87c4-ec7c68dd652b.png)
+![image](https://user-images.githubusercontent.com/100844800/207882642-3bb9b6e5-544f-4ba5-9f30-00ea1df4c211.png)
 
 
 ## Color Pattern
